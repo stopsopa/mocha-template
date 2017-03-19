@@ -2,11 +2,17 @@
     "dependencies": {
         "body-parser": "^1.17.1",
         "express": "^4.15.2",
-        "mocha": "^3.2.0",
         "nightmare": "^2.10.0"
+    },
+    "devDependencies": {
+        "coveralls": "^2.12.0",
+        "istanbul": "^0.4.5",
+        "mocha-lcov-reporter": "^1.3.0",
+        "mocha": "^3.2.0"
     },
     "scripts": {
         "test": "node_modules/mocha/bin/mocha test/test.jsx",
+        "cover": "istanbul cover _mocha --report lcovonly test/test.jsx",
         "server": "node server.jsx 0.0.0.0 1025",
         "parser": "node parser.jsx 0.0.0.0 1026"
     }

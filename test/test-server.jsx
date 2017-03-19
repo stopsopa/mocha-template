@@ -4,8 +4,6 @@ const assert        = require('assert');
 const path          = require('path');
 const curl          = require(path.resolve(__dirname, '..', 'lib', 'curl.jsx'));
 
-// http://localhost:1026/?url=http://localhost:1025
-
 describe('Server and parser test', function () {
 
     it('server test', function (done) {
@@ -14,7 +12,7 @@ describe('Server and parser test', function () {
                 assert.equal('Server: 0.0.0.0:1025 is working...', res.body)
                 done()
             });
-    })
+    });
 
     it('parser test', function (done) {
         curl('http://localhost:1026/?url=http://localhost:1025')
@@ -23,6 +21,6 @@ describe('Server and parser test', function () {
                 assert.equal(expected, res.body)
                 done()
             });
-    })
+    });
 
 });
