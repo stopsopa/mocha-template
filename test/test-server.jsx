@@ -17,9 +17,9 @@ describe('Server and parser test', function () {
     })
 
     it('parser test', function (done) {
-        curl('http://localhost:1026/?url=http://localhost:1026')
+        curl('http://localhost:1026/?url=http://localhost:1025')
             .then(function (res) {
-                var expected = `<html><head></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">Server: 0.0.0.0:1026 is working...</pre></body></html>`;
+                var expected = `<html><head></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">Server: 0.0.0.0:1025 is working...</pre></body></html>`;
                 assert.equal(expected, res.body)
                 done()
             });
