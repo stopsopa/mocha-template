@@ -1,4 +1,4 @@
-sudo: required # without that can't run
+# sudo: required # without that can't run
 language: node_js
 node_js:
   - "7"
