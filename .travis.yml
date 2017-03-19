@@ -16,8 +16,9 @@ before_script: # https://docs.travis-ci.com/user/gui-and-headless-browsers/#Usin
   # alternatively
   #- "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
   - sleep 3 # give xvfb some time to start
-#  - start node server #https://docs.travis-ci.com/user/gui-and-headless-browsers/#Starting-a-Web-Server
-#  - sleep 3
+  - npm run server & disown #https://docs.travis-ci.com/user/gui-and-headless-browsers/#Starting-a-Web-Server
+  - npm run parser & disown
+  - sleep 3
 
 script:
   - npm test

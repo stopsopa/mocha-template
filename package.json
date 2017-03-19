@@ -1,8 +1,13 @@
 {
     "dependencies": {
-        "mocha": "^3.2.0"
+        "body-parser": "^1.17.1",
+        "express": "^4.15.2",
+        "mocha": "^3.2.0",
+        "nightmare": "^2.10.0"
     },
     "scripts": {
-        "test"        : "node_modules/mocha/bin/mocha test/test.jsx"
+        "test": "node_modules/mocha/bin/mocha test/test.jsx",
+        "server": "node server.jsx 0.0.0.0 99",
+        "parser": "node parser.jsx 0.0.0.0 98"
     }
 }
