@@ -27,6 +27,6 @@ script:
   - npm test
 
 after_success:
-  - npm cover
+  - npm run cover
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
