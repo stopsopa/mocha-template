@@ -27,9 +27,8 @@ describe('Test mocha', function() {
 
         it('inner test', function () {
             assert.equal(' before-in beforeEach-in', tmp)
-        })
-    })
-
+        });
+    });
 
     describe('Array', function () { // only -> https://mochajs.org/#exclusive-tests
 
@@ -93,8 +92,6 @@ describe('Test mocha', function() {
                 assert.equal(list, 'before beforeEach testitself afterEach beforeEach each');
             });
         });
-
-
     });
 
     // https://mochajs.org/#inclusive-tests
@@ -130,12 +127,12 @@ describe('Test mocha', function() {
             this.slow(10000); // only if longer then 10000 this test is considered as slo
 
             setTimeout(done, 1000)
-        })
+        });
 
         it('dwa', function (done) {
 
             setTimeout(done, 1000)
-        })
+        });
     });
 
     describe('inclusive tests', function () {
@@ -158,8 +155,8 @@ describe('Test mocha', function() {
             } else {
                 this.skip();
             }
-        })
-    })
+        });
+    });
 
     describe('skip block by before -> this.skip()', function () {
         before(function() {
@@ -169,7 +166,7 @@ describe('Test mocha', function() {
             }
         });
         it("this wan't be executed - entire block is skipped", noop)
-    })
+    });
 
     // https://mochajs.org/#retry-tests
     describe('retry', function () {
@@ -199,8 +196,8 @@ describe('Test mocha', function() {
 
             log('test - failed: ')
             assert.equal(4, JSON.parse(fs.readFileSync(file)));
-        })
-    })
+        });
+    });
 
     // https://mochajs.org/#dynamically-generating-tests
     describe('generate tests', function () {
@@ -225,10 +222,5 @@ describe('Test mocha', function() {
                 });
             });
         });
-
     });
-
-
 });
-
-// require(path.resolve(__dirname, 'test2.jsx'));

@@ -9,8 +9,6 @@ require(path.resolve(__dirname, 'lib', 'rootrequire.jsx'))(__dirname);
 const log           = rootrequire(path.join('lib', 'log.jsx'));
 const assert        = console.assert;
 
-// const url           = require('url');
-
 const app           = express();
 
 assert(process.argv.length > 3, "try to call for example 'node " + path.basename(__filename) + " 0.0.0.0 80'");

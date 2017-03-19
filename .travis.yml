@@ -1,14 +1,13 @@
-# sudo: required # without that can't run
 language: node_js
 node_js:
   - "7"
   - "6"
   - "stable"
 
-sudo: false
+# sudo: false # with ports higher then 1024 no need to use sudo
 
 #install:
-##  - npm install -g yarn # no need to install yarn https://docs.travis-ci.com/user/languages/javascript-with-nodejs/#Travis-CI-supports-yarn
+#  - npm install -g yarn # no need to install yarn https://docs.travis-ci.com/user/languages/javascript-with-nodejs/#Travis-CI-supports-yarn
 #  - yarn # no need to even execute yarn if there is yarn.lock file
 
 before_script: # https://docs.travis-ci.com/user/gui-and-headless-browsers/#Using-xvfb-to-Run-Tests-That-Require-a-GUI
@@ -16,17 +15,16 @@ before_script: # https://docs.travis-ci.com/user/gui-and-headless-browsers/#Usin
   - "sh -e /etc/init.d/xvfb start"
   # alternatively
   #- "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024x16"
-  - sleep 3 # give xvfb some time to start
+  #- sleep 3 # give xvfb some time to start
   - npm run server & disown #https://docs.travis-ci.com/user/gui-and-headless-browsers/#Starting-a-Web-Server
   - npm run parser & disown
-#  - sleep 3 - not necessary, install global libs below instead
+#  - sleep 3 - not necessary, install global libs below instead, it takes time too
   - yarn global add mocha@3.2.0
   - yarn global add istanbul@0.4.5
 
 script:
-  - npm test
+  - npm run cover
 
 after_success:
-  - npm run cover
-  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+  - cat ./coverage/lcov.info | node node_modules/coveralls/bin/coveralls.js
 
