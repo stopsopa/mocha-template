@@ -7,7 +7,7 @@
     },
     "scripts": {
         "test": "node_modules/mocha/bin/mocha test/test.jsx",
-        "server": "node server.jsx 0.0.0.0 99",
-        "parser": "node parser.jsx 0.0.0.0 98"
+        "server": "node server.jsx 0.0.0.0 1025",
+        "parser": "node parser.jsx 0.0.0.0 1026"
     }
 }
